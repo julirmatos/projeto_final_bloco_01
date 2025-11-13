@@ -6,7 +6,7 @@ export function main() {
     let opcao: number;
 
     while (true) {
-        console.log(colors.bg.black, colors.fg.bluestrong, "*****************************************************");
+        console.log(colors.fg.bluestrong, "*****************************************************");
         console.log(" ");
         console.log("              PAPELARIA DA JUJU");
         console.log(" ");
@@ -17,7 +17,6 @@ export function main() {
         console.log(" 3 - Buscar Produto por ID");
         console.log(" 4 - Atualizar Produto");
         console.log(" 5 - Apagar Produto");
-        console.log(" 6 - Registrar Venda");
         console.log(" 7 - Sair");
         console.log(" ");
         console.log("*****************************************************");
@@ -27,7 +26,7 @@ export function main() {
         opcao = readlinesync.questionInt("");
 
         if (opcao == 7) {
-            console.log(colors.bg.black, colors.fg.bluestrong, "\nPapelaria da Juju - Tudo para sua criatividade!");
+            console.log(colors.fg.bluestrong, "\nPapelaria da Juju - Tudo para sua criatividade!");
             sobre();
             console.log(colors.reset, "");
             process.exit(0);
