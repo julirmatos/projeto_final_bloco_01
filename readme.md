@@ -1,9 +1,6 @@
 # TURMA JS11/2025 - Atividade Prática 
 
 
-# TURMA JS11/2025 - Atividade Prática 
-
-
 **Instruções gerais:**
 
 <div class="joplin-table-wrapper"><table><thead><tr><th><ol><li>Utilize o VsCode para desenvolver os algoritmos.</li><li>Ao concluir os exercícios, envie todos os códigos criados para o Repositório criado na sua conta pessoal do Github, em uma pasta identificada com o tema da sessão</li><li>Envie o link do repositório no Github através da Plataforma da Generation na data indicada</li><li>Caso seja solicitado, adicione os links individuais dos arquivos .Javascript indicados, no item: <strong>Adicione um dos links da sua entrega</strong>, localizada depois do link do Repositório, na tela de entrega da atividade na plataforma, para validação da atividade.</li></ol></th></tr><tr><th><p><strong>Mantenha a entrega das Atividades em dia na Plataforma</strong></p></th></tr></thead></table></div>
