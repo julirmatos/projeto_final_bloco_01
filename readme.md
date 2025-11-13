@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TURMA JS11/2025 - Atividade Prática 
 
 
@@ -103,3 +104,6 @@ Uma imagem contendo placar, desenho, relógio<br><br>Descrição gerada automati
 [![Tecnologias e Ferramentas utilizadas:](https://skillicons.dev/icons?i=vscode,ts,nodejs,npm,github,git,)](https://skillicons.dev)
 
 
+=======
+
+>>>>>>> 74e49d92292f5da89e4e338383c8bec344583378
