@@ -1,5 +1,7 @@
 <<<<<<< HEAD
+
 # TURMA JS11/2025 - Atividade Prática 
+
 
 
 **Instruções gerais:**
