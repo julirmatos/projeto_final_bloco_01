@@ -1,14 +1,41 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/img/colors';
+import { ProdutoFisico } from "./src/model/ProdutoFisico";
+import { ProdutoController } from "./src/controller/ProdutoController";
+
+
+const controller = new ProdutoController();
+
+// Cadastrar produtos iniciais
+const caneta = new ProdutoFisico(1, "Caneta Azul", 2.5, "BIC", 100, "Caneta");
+const caderno = new ProdutoFisico(2, "Caderno 100 folhas", 12.9, "Tilibra", 50, "Caderno");
+const lapis = new ProdutoFisico(3, "Lápis HB nº2", 1.5, "Faber-Castell", 200, "Lápis");
+const borracha = new ProdutoFisico(4, "Borracha Branca", 2.0, "Mercur", 150, "Borracha");
+const apontador = new ProdutoFisico(5, "Apontador Duplo", 3.5, "Maped", 80, "Apontador");
+const marcaTexto = new ProdutoFisico(6, "Marca Texto Amarelo", 4.9, "Stabilo", 120, "Marca Texto");
+const estojo = new ProdutoFisico(7, "Estojo Escolar", 18.9, "Capricho", 40, "Estojo");
+const cola = new ProdutoFisico(8, "Cola Branca 90g", 5.0, "Pritt", 60, "Cola");
+const tesoura = new ProdutoFisico(9, "Tesoura Escolar", 6.9, "Tramontina", 35, "Tesoura");
+const papelSulfite = new ProdutoFisico(10, "Papel Sulfite A4 500 folhas", 32.9, "Chamex", 25, "Papel");
+
+controller.cadastrar(caneta);
+controller.cadastrar(caderno);
+controller.cadastrar(lapis);
+controller.cadastrar(borracha);
+controller.cadastrar(apontador);
+controller.cadastrar(marcaTexto);
+controller.cadastrar(estojo);
+controller.cadastrar(cola);
+controller.cadastrar(tesoura);
+controller.cadastrar(papelSulfite);
 
 export function main() {
-
     let opcao: number;
 
     while (true) {
         console.log(colors.fg.bluestrong, "*****************************************************");
         console.log(" ");
-        console.log("              PAPELARIA DA JUJU");
+        console.log("             📚   PAPELARIA DA JUJU");
         console.log(" ");
         console.log("*****************************************************");
         console.log(" ");
@@ -17,7 +44,7 @@ export function main() {
         console.log(" 3 - Buscar Produto por ID");
         console.log(" 4 - Atualizar Produto");
         console.log(" 5 - Apagar Produto");
-        console.log(" 7 - Sair");
+        console.log(" 6 - Sair");
         console.log(" ");
         console.log("*****************************************************");
         console.log(" ", colors.reset);
@@ -25,7 +52,7 @@ export function main() {
 
         opcao = readlinesync.questionInt("");
 
-        if (opcao == 7) {
+        if (opcao == 6) {
             console.log(colors.fg.bluestrong, "\nPapelaria da Juju - Tudo para sua criatividade!");
             sobre();
             console.log(colors.reset, "");
@@ -35,37 +62,47 @@ export function main() {
         switch (opcao) {
             case 1:
                 console.log(colors.fg.whitestrong, "\n\nCadastrar Produto\n\n", colors.reset);
-                // lógica futura de cadastro
+                const id = readlinesync.questionInt("ID: ");
+                const nome = readlinesync.question("Nome: ");
+                const preco = readlinesync.questionFloat("Preço: ");
+                const marca = readlinesync.question("Marca: ");
+                const estoque = readlinesync.questionInt("Estoque: ");
+                const categoria = readlinesync.question("Categoria: ");
+                const novoProduto = new ProdutoFisico(id, nome, preco, marca, estoque, categoria);
+                controller.cadastrar(novoProduto);
                 keyPress();
                 break;
 
             case 2:
                 console.log(colors.fg.whitestrong, "\n\nListar todos os Produtos\n\n", colors.reset);
-                // lógica futura de listagem
+                controller.listarTodos();
                 keyPress();
                 break;
 
             case 3:
                 console.log(colors.fg.whitestrong, "\n\nBuscar Produto por ID\n\n", colors.reset);
-                // lógica futura de busca
+                const idBusca = readlinesync.questionInt("Digite o ID do produto: ");
+                controller.procurarPorId(idBusca);
                 keyPress();
                 break;
 
             case 4:
                 console.log(colors.fg.whitestrong, "\n\nAtualizar Produto\n\n", colors.reset);
-                // lógica futura de atualização
+                const idAtualiza = readlinesync.questionInt("ID do produto que deseja atualizar: ");
+                const nomeNovo = readlinesync.question("Novo nome: ");
+                const precoNovo = readlinesync.questionFloat("Novo preço: ");
+                const marcaNova = readlinesync.question("Nova marca: ");
+                const estoqueNovo = readlinesync.questionInt("Novo estoque: ");
+                const categoriaNova = readlinesync.question("Nova categoria: ");
+                const produtoAtualizado = new ProdutoFisico(idAtualiza, nomeNovo, precoNovo, marcaNova, estoqueNovo, categoriaNova);
+                controller.atualizar(produtoAtualizado);
                 keyPress();
                 break;
 
             case 5:
                 console.log(colors.fg.whitestrong, "\n\nApagar Produto\n\n", colors.reset);
-                // lógica futura de exclusão
-                keyPress();
-                break;
-
-            case 6:
-                console.log(colors.fg.whitestrong, "\n\nRegistrar Venda\n\n", colors.reset);
-                // lógica futura de venda
+                const idDel = readlinesync.questionInt("Digite o ID do produto a apagar: ");
+                controller.deletar(idDel);
                 keyPress();
                 break;
 
@@ -77,9 +114,9 @@ export function main() {
     }
 }
 
-/* Função com os dados da pessoa desenvolvedora */
+
 function sobre(): void {
-    console.log(colors.bg.black, colors.fg.bluestrong, "\n*****************************************************");
+    console.log(colors.fg.bluestrong, "\n*****************************************************");
     console.log("Projeto Desenvolvido por: Juliana Matos");
     console.log("Generation Brasil - generation@generation.org");
     console.log("github.com/conteudoGeneration");
