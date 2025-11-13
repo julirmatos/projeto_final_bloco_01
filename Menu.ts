@@ -1,8 +1,12 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/img/colors';
 import { ProdutoFisico } from "./src/model/ProdutoFisico";
+import { ProdutoController } from "./src/controller/ProdutoController";
 
 
+const controller = new ProdutoController();
+
+// Cadastrar produtos iniciais
 const caneta = new ProdutoFisico(1, "Caneta Azul", 2.5, "BIC", 100, "Caneta");
 const caderno = new ProdutoFisico(2, "Caderno 100 folhas", 12.9, "Tilibra", 50, "Caderno");
 const lapis = new ProdutoFisico(3, "Lápis HB nº2", 1.5, "Faber-Castell", 200, "Lápis");
@@ -14,6 +18,16 @@ const cola = new ProdutoFisico(8, "Cola Branca 90g", 5.0, "Pritt", 60, "Cola");
 const tesoura = new ProdutoFisico(9, "Tesoura Escolar", 6.9, "Tramontina", 35, "Tesoura");
 const papelSulfite = new ProdutoFisico(10, "Papel Sulfite A4 500 folhas", 32.9, "Chamex", 25, "Papel");
 
+controller.cadastrar(caneta);
+controller.cadastrar(caderno);
+controller.cadastrar(lapis);
+controller.cadastrar(borracha);
+controller.cadastrar(apontador);
+controller.cadastrar(marcaTexto);
+controller.cadastrar(estojo);
+controller.cadastrar(cola);
+controller.cadastrar(tesoura);
+controller.cadastrar(papelSulfite);
 
 export function main() {
     let opcao: number;
@@ -21,7 +35,7 @@ export function main() {
     while (true) {
         console.log(colors.fg.bluestrong, "*****************************************************");
         console.log(" ");
-        console.log("              PAPELARIA DA JUJU");
+        console.log("             📚PAPELARIA DA JUJU");
         console.log(" ");
         console.log("*****************************************************");
         console.log(" ");
@@ -30,7 +44,7 @@ export function main() {
         console.log(" 3 - Buscar Produto por ID");
         console.log(" 4 - Atualizar Produto");
         console.log(" 5 - Apagar Produto");
-        console.log(" 7 - Sair");
+        console.log(" 6 - Sair");
         console.log(" ");
         console.log("*****************************************************");
         console.log(" ", colors.reset);
@@ -100,7 +114,7 @@ export function main() {
     }
 }
 
-/* Função com os dados da pessoa desenvolvedora */
+
 function sobre(): void {
     console.log(colors.bg.black, colors.fg.bluestrong, "\n*****************************************************");
     console.log("Projeto Desenvolvido por: Juliana Matos");
