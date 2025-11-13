@@ -35,7 +35,7 @@ export function main() {
     while (true) {
         console.log(colors.fg.bluestrong, "*****************************************************");
         console.log(" ");
-        console.log("             📚PAPELARIA DA JUJU");
+        console.log("             📚   PAPELARIA DA JUJU");
         console.log(" ");
         console.log("*****************************************************");
         console.log(" ");
@@ -52,7 +52,7 @@ export function main() {
 
         opcao = readlinesync.questionInt("");
 
-        if (opcao == 7) {
+        if (opcao == 6) {
             console.log(colors.fg.bluestrong, "\nPapelaria da Juju - Tudo para sua criatividade!");
             sobre();
             console.log(colors.reset, "");
@@ -116,7 +116,7 @@ export function main() {
 
 
 function sobre(): void {
-    console.log(colors.bg.black, colors.fg.bluestrong, "\n*****************************************************");
+    console.log(colors.fg.bluestrong, "\n*****************************************************");
     console.log("Projeto Desenvolvido por: Juliana Matos");
     console.log("Generation Brasil - generation@generation.org");
     console.log("github.com/conteudoGeneration");
